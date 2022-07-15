@@ -49,3 +49,4 @@
    Después de realizar los cambios, tendremos a la clase `Empleado` como un contenedor de datos, y las dos nuevas clases contendrán una sola razón de cambio.
    De esta forma, se soluciona el problema y cumplimos con el principio SRP.
 
+   
