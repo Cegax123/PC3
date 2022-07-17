@@ -1,7 +1,5 @@
 package Solid.LSP;
 
-/*
-interface NewPayment {
-   ...completa
+public interface NewPayment {
+    void newPayment();
 }
-*/

@@ -142,7 +142,66 @@
     Después de ralizar los cambios tendremos una interfaz `DistinctionDecider` y la clase abstracta `Estudiante`, estos modulos abstraen los conceptos que usan en la clase `Cliente`.
       
     Este nuevo diseño permite una facil extension del software como por ejemplo nuevos departamentos y nuevas ramas para los estudiantes.
-
-12. **¿Cuáles son las principales ventajas ahora?**
+    
+11. **¿Cuáles son las principales ventajas ahora?**
     - Si ahora quremos añadir una nueva rama como la de "letras" podemos simplemente crear una nueva clase `LetterDistinctionDecider` que implementaria la interfaz `DistinctionDecider`, asi como tambien creando una clase `LetrasEstudiante` que extiende a `Estudiante`,asi evitando cambiar lineas de codigo de alguna clase.
     - En general cualquier extension que querramos hacer sera solucionada gracias a la herencia y el polimorfismo.
+
+## LSP
+
+12. **Muestra la salida y explica los resultados en función de los métodos entregados**
+
+
+
+   ```
+    Recuperando de Abejita, ultimos detalles de pagos.
+    ------
+    Recuperando de Chalito, ultimos detalles de pagos.
+    ------
+    Procesando de Abejita, la actual solicitud de pagos .
+    ------
+    Procesando de Chalito, la actual solicitud de pagos .
+    Process finished with exit code 0
+   ```
+   
+   
+   Instanciamos la clase PaymentHelper e Instanciamos la subclase heredada  de la interface Payment ,RegisteredUserPayment que a través de su constructor 
+   asignamos el atributo Name como los son : “Abejita” y “Chalito” .
+   Ahora añado dichos usuarios a la clase PaymentHelper a través de su método addUser
+   Por último muestro el historial de pago y los pagos en proceso por los metodos showPreviousPayments y processNewPayments las cuales fueron Override
+   de la interfaz de pagos .
+
+13. 
+14. **Dentro del método main(), utilizas una instancia de usuario invitado e intentas usar su clase auxiliar de la misma manera,¿ qué tipo de excepción te encuentras?¿Cuál es la solución?**
+   
+      Ya que la llamada al metodo de mostrar solicitud anterior para un usuario invitado es una opearcion incompatible se genera : Excepción de operación no admitida.
+
+      Una solución sería evitar llamar a los invitados cuando vemos los pagos previos
+    ![img_3.png](images/img_3.png)
+
+15. 
+16. **Modificación del codigo**
+    
+
+   ![img_4.png](images/img_4.png)
+    
+   ![img_5.png](images/img_5.png)
+   ```
+    Demostracion LSP.
+
+    Recuperando de Irene, ultimos detalles de pagos.
+    ------
+    Recuperando de Claudio, ultimos detalles de pagos.
+    ------
+    Procesando de Irene, la actual solicitud de pagos .
+    ------
+    Procesando de Claudio, la actual solicitud de pagos .
+    ------
+    Procesando de guestpago actual request.
+    ------   
+   ```
+17. **¿Cuáles son los cambios clave?**
+    
+    La creación de una nueva Interface para el caso de Usuarios invitados ,
+       y la modificación de la clase auxiliar PaymentHelper lo que conlleva que la interface sea capaz de trabajar con cualquier subclase sin siquiera darse cuenta
+       respetando LSP. 
