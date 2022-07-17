@@ -50,4 +50,4 @@
    Y las dos nuevas clases solo tendrán una razón de cambio cada una, por lo cual nuestro sistema sigue a SRP.
 
    Por lo que, el método `showEmpDetail()` quedaría de la siguiente manera:
-   ![img.png](images/img.png)
+   ![img.png](images/srpimg.png)
