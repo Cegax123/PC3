@@ -1,6 +1,7 @@
 package Solid.ISP;
-/*
+
 interface Impresora {
-...completa
+    default void printDocument(){
+        System.out.println("La impresora imprime un documento.");
+    }
 }
-*/

@@ -235,3 +235,21 @@
 22. **¿Es conveniente usar e inicializar el siguiente código?**
    
       Como mencionamos en la respuesta de la pregunta 21, si inicializamos de esa manera se violaría el principio ISP, puesto que `ImpresoraBasica` tendría un método que no utiliza.
+
+23. **¿qué código puedes escribir?**
+   
+   ```
+      Hola mundo
+   ```
+
+24. **Comprueba tus respuestas añadiendo dentro de main(), el siguiente código
+    polimórfico:**
+
+   ![img.png](images/isp_img_1.png)
+   
+   
+   ![img.png](images/isp_img_2.png)
+
+25. **r**
+26. **a**
+27. ***
