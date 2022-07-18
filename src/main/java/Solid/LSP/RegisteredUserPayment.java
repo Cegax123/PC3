@@ -13,6 +13,5 @@ public class RegisteredUserPayment implements PreviousPayment,NewPayment{
     @Override
     public void newPayment(){
         System.out.println("Procesando de "+name+", la actual solicitud de pagos .");
-
     }
 }

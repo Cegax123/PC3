@@ -16,10 +16,13 @@ class Cliente {
         List<Impresora> impresoras = new ArrayList<Impresora>();
         impresoras.add(new ImpresoraAvanzada());
         impresoras.add(new ImpresoraBasica());
-        for (Impresora dispositivo : impresoras) {
+      /*  for (Impresora dispositivo : impresoras) {
             dispositivo.printDocument();
             dispositivo.sendFax();
         }
+
+       */
+        impresoras.forEach((imp)->{imp.printDocument();imp.sendFax();});
     }
 
 }

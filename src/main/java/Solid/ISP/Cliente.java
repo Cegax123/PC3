@@ -13,5 +13,6 @@ public class Cliente {
         DispositivoFax fax = new ImpresoraAvanzada();
         fax.sendFax();
 
+
     }
 }
