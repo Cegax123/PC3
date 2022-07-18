@@ -49,12 +49,15 @@
    Ahora tendremos que mover los dos métodos de la clase `Empleado` a una nueva clase cada uno. De esta forma, nos queda que la clase `Empleado` puede verse como un contenedor de datos (por lo cual, podríamos modificar el nombre de la clase a `EmpleadoData`, para una mejor comprensión).
    Y las dos nuevas clases solo tendrán una razón de cambio cada una, por lo cual nuestro sistema sigue a SRP.
 
+   Por lo que, el método `showEmpDetail()` quedaría de la siguiente manera:
+   ![img.png](images/srpimg.png)
+
 ---
 ## OCP
 
-5. **¿Por que no es correcto colocar displayResult() y evaluateDistinction() en la misma clase, como la siguiente:**
+5. **¿Por qué no es correcto colocar displayResult() y evaluateDistinction() en la misma clase, como la siguiente:**
    
-   Porque no cumpliria el principio ya analizado de SRP, esto porque `diplayResult()` y `evaluateDistinction()` pueden generar distintas razones de cambio.
+   Porque no cumpliría el principio ya analizado de SRP, esto porque `diplayResult()` y `evaluateDistinction()` pueden generar distintas razones de cambio.
 
 6. **Muestra la salida y explica los resultados en función de los métodos entregados**
    
@@ -100,14 +103,14 @@
 8. **Debes abordar el método de evaluación para la distinción de una mejor manera.
    Por lo tanto, crea la interfaz DistinctionDecider que contiene un método llamado
    EvaluationDistinction.**
-   ![img.png](img.png)
+   ![img.png](images/img.png)
 
 9. **Completa el código de ArtsDistinctionDecider y ScienceDistinctionDecider que
    implementan esta interfaz y sobreescriben el método de evaluateDistinction(...) para
    especificar los criterios de evaluación según sus necesidades.**
 
-   ![img_1.png](img_1.png)
-   ![img_2.png](img_2.png)
+   ![img_1.png](images/img_1.png)
+   ![img_2.png](images/img_2.png)
 10. **Realiza una demostración completa que sigue a OCP. Explica tus resultados**
     
    ```
@@ -139,13 +142,15 @@
    
    Process finished with exit code 0
    ```
-    Después de ralizar los cambios tendremos una interfaz `DistinctionDecider` y la clase abstracta `Estudiante`, estos modulos abstraen los conceptos que usan en la clase `Cliente`.
+    Después de realizar los cambios tendremos una interfaz `DistinctionDecider` y la clase abstracta `Estudiante`, estos módulos abstraen los conceptos que usan en la clase `Cliente`.
       
-    Este nuevo diseño permite una facil extension del software como por ejemplo nuevos departamentos y nuevas ramas para los estudiantes.
+    Este nuevo diseño permite una fácil extension del software como por ejemplo nuevos departamentos y nuevas ramas para los estudiantes.
     
 11. **¿Cuáles son las principales ventajas ahora?**
-    - Si ahora quremos añadir una nueva rama como la de "letras" podemos simplemente crear una nueva clase `LetterDistinctionDecider` que implementaria la interfaz `DistinctionDecider`, asi como tambien creando una clase `LetrasEstudiante` que extiende a `Estudiante`,asi evitando cambiar lineas de codigo de alguna clase.
-    - En general cualquier extension que querramos hacer sera solucionada gracias a la herencia y el polimorfismo.
+    - Si ahora queremos añadir una nueva rama como la de "letras" podemos simplemente crear una nueva clase `LetterDistinctionDecider` que implementaría la interfaz `DistinctionDecider`, asi como también creando una clase `LetrasEstudiante` que extiende a `Estudiante`, así evitando cambiar líneas de código de alguna clase.
+    - En general cualquier extension que queramos hacer será solucionada gracias a la herencia y el polimorfismo.
+
+---
 
 ## LSP
 
@@ -172,9 +177,9 @@
    de la interfaz de pagos .
 
 13. 
-14. **Dentro del método main(), utilizas una instancia de usuario invitado e intentas usar su clase auxiliar de la misma manera,¿ qué tipo de excepción te encuentras?¿Cuál es la solución?**
+14. **Dentro del método main(), utilizas una instancia de usuario invitado e intentas usar su clase auxiliar de la misma manera, ¿qué tipo de excepción te encuentras?¿Cuál es la solución?**
    
-      Ya que la llamada al metodo de mostrar solicitud anterior para un usuario invitado es una opearcion incompatible se genera : Excepción de operación no admitida.
+      Ya que la llamada al método de mostrar solicitud anterior para un usuario invitado es una operación incompatible se genera: Excepción de operación no admitida.
 
       Una solución sería evitar llamar a los invitados cuando vemos los pagos previos
     ![img_3.png](images/img_3.png)
@@ -206,5 +211,27 @@
        y la modificación de la clase auxiliar PaymentHelper lo que conlleva que la interface sea capaz de trabajar con cualquier subclase sin siquiera darse cuenta
        respetando LSP. 
    
-18. Por lo que, el método `showEmpDetail()` quedaría de la siguiente manera:
-   ![img.png](images/srpimg.png)
+18. 
+
+
+---
+
+## ISP
+
+19. **Escribe una jerarquía de fax que puede parecerse a la siguiente**
+
+   El resultado sería el siguiente
+
+   ![img_5.png](images/ispimg1.png)
+   
+20. **Explica el problema**
+
+    Como tenemos que pasar como parámetro el tipo de Fax, entonces tendremos que modificar el método `sendFax` de la interface `Impresora`. Esto conlleva a que tengamos que modificar el método `sendFax` de la clase concreta `ImpresoraBasica`. Es decir, estamos modificando una clase por una razón que no debería depender de ella, en este caso el método `sendFax`.
+
+21. **Si has entendido correctamente el problema. El ISP te sugiere que te ocupes de este tipo de escenario. Explica tu respuesta.**
+
+      Como el ISP indica, tendríamos que dividir ambos métodos de la interfaz `Impresora` en dos nuevas interfaces. La `ImpresoraAvanzada` implementaría ambas interfaces, mientras que la `ImpresoraBasica` implementaría solo el método que necesita en este caso.
+
+22. **¿Es conveniente usar e inicializar el siguiente código?**
+   
+      Como mencionamos en la respuesta de la pregunta 21, si inicializamos de esa manera se violaría el principio ISP, puesto que `ImpresoraBasica` tendría un método que no utiliza.
