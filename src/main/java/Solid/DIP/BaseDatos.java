@@ -1,7 +1,6 @@
 package Solid.DIP;
 
-/*
+
 interface BaseDatos {
-  ...completa
+    public void saveEmpIdInDatabase(String empId);
 }
-*/

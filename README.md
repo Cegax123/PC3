@@ -42,12 +42,12 @@
 
 3. **Modifica la clase Empleado**
    
-   Modificando la clase Empleado...
+   Modificamos los archivos `Empleado`, `GeneradorIDEmpleado`, `SeniorityChecker` y `Cliente` del package `Solid.SRP`
 
 4. **Realiza una demostración completa que sigue a SRP. Explica tus resultados**
    
-   Después de realizar los cambios, tendremos a la clase `Empleado` como un contenedor de datos, y las dos nuevas clases contendrán una sola razón de cambio.
-   De esta forma, se soluciona el problema y cumplimos con el principio SRP.
+   Ahora tendremos que mover los dos métodos de la clase `Empleado` a una nueva clase cada uno. De esta forma, nos queda que la clase `Empleado` puede verse como un contenedor de datos (por lo cual, podríamos modificar el nombre de la clase a `EmpleadoData`, para una mejor comprensión).
+   Y las dos nuevas clases solo tendrán una razón de cambio cada una, por lo cual nuestro sistema sigue a SRP.
 
 ---
 ## OCP
@@ -205,3 +205,6 @@
     La creación de una nueva Interface para el caso de Usuarios invitados ,
        y la modificación de la clase auxiliar PaymentHelper lo que conlleva que la interface sea capaz de trabajar con cualquier subclase sin siquiera darse cuenta
        respetando LSP. 
+   
+18. Por lo que, el método `showEmpDetail()` quedaría de la siguiente manera:
+   ![img.png](images/srpimg.png)
